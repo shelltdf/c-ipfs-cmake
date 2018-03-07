@@ -101,29 +101,19 @@ SET(SETUP_SOURCES
     c-ipfs/core/ping.c
     c-ipfs/core/swarm.c
 )
-file(GLOB_RECURSE SETUP_SOURCES c-ipfs/main "*.c")
-# file(GLOB_RECURSE SETUP_SOURCES c-ipfs/core "*.c")
 
-file(GLOB_RECURSE SETUP_SOURCES c-ipfs/blocks "*.c")
-file(GLOB_RECURSE SETUP_SOURCES c-ipfs/cid "*.c")
-file(GLOB_RECURSE SETUP_SOURCES c-ipfs/cmd "*.c")
-file(GLOB_RECURSE SETUP_SOURCES c-ipfs/commands "*.c")
-file(GLOB_RECURSE SETUP_SOURCES c-ipfs/datastore "*.c")
-file(GLOB_RECURSE SETUP_SOURCES c-ipfs/dnslink "*.c")
-file(GLOB_RECURSE SETUP_SOURCES c-ipfs/exchange "*.c")
-file(GLOB_RECURSE SETUP_SOURCES c-ipfs/flatfs "*.c")
-file(GLOB_RECURSE SETUP_SOURCES c-ipfs/importer "*.c")
-file(GLOB_RECURSE SETUP_SOURCES c-ipfs/journal "*.c")
-file(GLOB_RECURSE SETUP_SOURCES c-ipfs/merkledag "*.c")
-file(GLOB_RECURSE SETUP_SOURCES c-ipfs/multibase "*.c")
-file(GLOB_RECURSE SETUP_SOURCES c-ipfs/namesys "*.c")
-file(GLOB_RECURSE SETUP_SOURCES c-ipfs/path "*.c")
-file(GLOB_RECURSE SETUP_SOURCES c-ipfs/pin "*.c")
-file(GLOB_RECURSE SETUP_SOURCES c-ipfs/repo "*.c")
-file(GLOB_RECURSE SETUP_SOURCES c-ipfs/routing "*.c")
-file(GLOB_RECURSE SETUP_SOURCES c-ipfs/thirdparty "*.c")
-file(GLOB_RECURSE SETUP_SOURCES c-ipfs/unixfs "*.c")
-file(GLOB_RECURSE SETUP_SOURCES c-ipfs/util "*.c")
+SET (DIRS 
+    main blocks cid cmd commands datastore dnslink exchange flatfs 
+    importer journal merkledag multibase namesys path pin repo routing 
+    thirdparty unixfs util
+    )
+
+foreach(loop_var ${DIRS})
+    SET(GLOB_SOURCES "")
+    file(GLOB_RECURSE GLOB_SOURCES "c-ipfs/${loop_var}/*.c")
+    SET(SETUP_SOURCES ${SETUP_SOURCES} ${GLOB_SOURCES})
+endforeach(loop_var)
+
 INCLUDE_DIRECTORIES(c-ipfs/include)
 INCLUDE_DIRECTORIES(c-protobuf)
 INCLUDE_DIRECTORIES(c-multihash/include)
