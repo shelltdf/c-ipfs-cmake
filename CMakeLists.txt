@@ -119,6 +119,7 @@ INCLUDE_DIRECTORIES(c-protobuf)
 INCLUDE_DIRECTORIES(c-multihash/include)
 INCLUDE_DIRECTORIES(c-multiaddr/include)
 INCLUDE_DIRECTORIES(c-libp2p/include)
+INCLUDE_DIRECTORIES(lmdb/libraries/liblmdb)
 NIUBI_SETUP_EXECUTABLE()
 
 
