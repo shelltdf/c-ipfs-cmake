@@ -76,7 +76,9 @@ SET(SETUP_HEADERS
     # c-libp2p/include/
 )
 SET(SETUP_SOURCES
-    # c-libp2p/multiaddr.c
+    c-libp2p/secio/exchange.c
+    c-libp2p/secio/propose.c
+    c-libp2p/secio/secio.c
 )
 # file(GLOB_RECURSE SETUP_SOURCES "c-libp2p/*.c")
 SET (DIRS 
@@ -92,7 +94,7 @@ SET (DIRS
 	peer
 	record
 	routing
-	secio
+	# secio
 	utils
 	swarm
 	yamux
