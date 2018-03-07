@@ -28,12 +28,29 @@ ENDMACRO(NIUBI_SETUP_EXECUTABLE)
 
 
 
+# ADD_SUBDIRECTORY(lmdb)
 # ADD_SUBDIRECTORY(c-protobuf)
 # ADD_SUBDIRECTORY(c-multihash)
 # ADD_SUBDIRECTORY(c-multiaddr)
 # ADD_SUBDIRECTORY(c-libp2p)
 # ADD_SUBDIRECTORY(c-ipfs)
-    
+  
+#lmdb
+SET(SETUP_TARGET_NAME lmdb)
+SET(SETUP_HEADERS
+    lmdb/libraries/liblmdb/lmdb.h
+    lmdb/libraries/liblmdb/midl.h
+)
+SET(SETUP_SOURCES
+    lmdb/libraries/liblmdb/mdb.c
+    lmdb/libraries/liblmdb/mdb_copy.c
+    lmdb/libraries/liblmdb/mdb_dump.c
+    lmdb/libraries/liblmdb/mdb_load.c
+    lmdb/libraries/liblmdb/mdb_stat.c
+    lmdb/libraries/liblmdb/midl.c
+)
+SETUP_LIBRARY()
+  
 #c-protobuf
 SET(SETUP_TARGET_NAME c-protobuf)
 SET(SETUP_HEADERS
@@ -129,11 +146,21 @@ SET(SETUP_SOURCES
     c-ipfs/core/swarm.c
     
     c-ipfs/path/path.c
+    
+    c-ipfs/namesys/base.c
+    c-ipfs/namesys/dns.c
+    c-ipfs/namesys/isdomain.c
+    c-ipfs/namesys/namesys.c
+    c-ipfs/namesys/proquint.c
+    c-ipfs/namesys/publisher.c
+    c-ipfs/namesys/pb.c
+    c-ipfs/namesys/name.c
+    c-ipfs/namesys/resolver.c
 )
 
 SET (DIRS 
     main blocks cid cmd commands datastore dnslink exchange flatfs 
-    importer journal merkledag multibase namesys pin repo routing 
+    importer journal merkledag multibase pin repo routing 
     thirdparty unixfs util
     )
 
@@ -151,6 +178,8 @@ INCLUDE_DIRECTORIES(c-libp2p/include)
 INCLUDE_DIRECTORIES(lmdb/libraries/liblmdb)
 NIUBI_SETUP_EXECUTABLE()
 target_link_libraries(${SETUP_TARGET_NAME} 
+        lmdb
         c-protobuf c-multihash c-multiaddr c-libp2p
+        m pthread resolv curl
         )
 
