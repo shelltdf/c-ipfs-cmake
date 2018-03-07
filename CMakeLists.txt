@@ -78,7 +78,7 @@ SET(SETUP_HEADERS
 SET(SETUP_SOURCES
     # c-libp2p/multiaddr.c
 )
-file(GLOB_RECURSE SETUP_SOURCES c-libp2p "*.c")
+file(GLOB_RECURSE SETUP_SOURCES "c-libp2p/*.c")
 INCLUDE_DIRECTORIES(c-libp2p/include)
 SETUP_LIBRARY()
 
