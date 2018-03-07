@@ -83,6 +83,11 @@ SET(SETUP_HEADERS
     c-multiaddr/include/multiaddr/multiaddr.h
 )
 SET(SETUP_SOURCES
+    c-multiaddr/base58.c
+    c-multiaddr/varint.c
+    c-multiaddr/varhexutils.c
+    c-multiaddr/protoutils.c
+    c-multiaddr/protocols.c
     c-multiaddr/multiaddr.c
 )
 INCLUDE_DIRECTORIES(c-multiaddr/include)
