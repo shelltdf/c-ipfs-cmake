@@ -89,9 +89,41 @@ SET(SETUP_HEADERS
     # c-ipfs/include/
 )
 SET(SETUP_SOURCES
-    # c-ipfs/multiaddr.c
+    c-ipfs/core/api.c
+    c-ipfs/core/bootstrap.c
+    c-ipfs/core/builder.c
+    c-ipfs/core/client_api.c
+    c-ipfs/core/daemon.c
+    c-ipfs/core/http_request.c
+    c-ipfs/core/ipfs_node.c
+    # c-ipfs/core/net.c
+    c-ipfs/core/null.c
+    c-ipfs/core/ping.c
+    c-ipfs/core/swarm.c
 )
-file(GLOB_RECURSE SETUP_SOURCES c-ipfs "*.c")
+file(GLOB_RECURSE SETUP_SOURCES c-ipfs/main "*.c")
+# file(GLOB_RECURSE SETUP_SOURCES c-ipfs/core "*.c")
+
+file(GLOB_RECURSE SETUP_SOURCES c-ipfs/blocks "*.c")
+file(GLOB_RECURSE SETUP_SOURCES c-ipfs/cid "*.c")
+file(GLOB_RECURSE SETUP_SOURCES c-ipfs/cmd "*.c")
+file(GLOB_RECURSE SETUP_SOURCES c-ipfs/commands "*.c")
+file(GLOB_RECURSE SETUP_SOURCES c-ipfs/datastore "*.c")
+file(GLOB_RECURSE SETUP_SOURCES c-ipfs/dnslink "*.c")
+file(GLOB_RECURSE SETUP_SOURCES c-ipfs/exchange "*.c")
+file(GLOB_RECURSE SETUP_SOURCES c-ipfs/flatfs "*.c")
+file(GLOB_RECURSE SETUP_SOURCES c-ipfs/importer "*.c")
+file(GLOB_RECURSE SETUP_SOURCES c-ipfs/journal "*.c")
+file(GLOB_RECURSE SETUP_SOURCES c-ipfs/merkledag "*.c")
+file(GLOB_RECURSE SETUP_SOURCES c-ipfs/multibase "*.c")
+file(GLOB_RECURSE SETUP_SOURCES c-ipfs/namesys "*.c")
+file(GLOB_RECURSE SETUP_SOURCES c-ipfs/path "*.c")
+file(GLOB_RECURSE SETUP_SOURCES c-ipfs/pin "*.c")
+file(GLOB_RECURSE SETUP_SOURCES c-ipfs/repo "*.c")
+file(GLOB_RECURSE SETUP_SOURCES c-ipfs/routing "*.c")
+file(GLOB_RECURSE SETUP_SOURCES c-ipfs/thirdparty "*.c")
+file(GLOB_RECURSE SETUP_SOURCES c-ipfs/unixfs "*.c")
+file(GLOB_RECURSE SETUP_SOURCES c-ipfs/util "*.c")
 INCLUDE_DIRECTORIES(c-ipfs/include)
 INCLUDE_DIRECTORIES(c-protobuf)
 INCLUDE_DIRECTORIES(c-multihash/include)
