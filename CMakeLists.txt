@@ -156,10 +156,12 @@ SET(SETUP_SOURCES
     c-ipfs/namesys/pb.c
     c-ipfs/namesys/name.c
     c-ipfs/namesys/resolver.c
+    
+    c-ipfs/cmd/cli.c
 )
 
 SET (DIRS 
-    main blocks cid cmd commands datastore dnslink exchange flatfs 
+    main blocks cid commands datastore dnslink exchange flatfs 
     importer journal merkledag multibase pin repo routing 
     thirdparty unixfs util
     )
