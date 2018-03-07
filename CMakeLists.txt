@@ -59,6 +59,7 @@ SET(SETUP_HEADERS
 SET(SETUP_SOURCES
     c-protobuf/protobuf.c
 )
+INCLUDE_DIRECTORIES(c-protobuf)
 SETUP_LIBRARY()
 
 
@@ -172,16 +173,17 @@ foreach(loop_var ${DIRS})
     SET(SETUP_SOURCES ${SETUP_SOURCES} ${GLOB_SOURCES})
 endforeach(loop_var)
 
-INCLUDE_DIRECTORIES(c-ipfs/include)
 INCLUDE_DIRECTORIES(c-protobuf)
 INCLUDE_DIRECTORIES(c-multihash/include)
 INCLUDE_DIRECTORIES(c-multiaddr/include)
 INCLUDE_DIRECTORIES(c-libp2p/include)
 INCLUDE_DIRECTORIES(lmdb/libraries/liblmdb)
+INCLUDE_DIRECTORIES(c-ipfs/include)
 NIUBI_SETUP_EXECUTABLE()
 target_link_libraries(${SETUP_TARGET_NAME} 
+        c-protobuf
         lmdb
-        c-protobuf c-multihash c-multiaddr c-libp2p
+        c-multihash c-multiaddr c-libp2p
         m pthread resolv curl
         )
 
