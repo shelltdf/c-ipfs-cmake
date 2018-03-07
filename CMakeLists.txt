@@ -123,7 +123,7 @@ INCLUDE_DIRECTORIES(c-multiaddr/include)
 INCLUDE_DIRECTORIES(c-libp2p/include)
 INCLUDE_DIRECTORIES(lmdb/libraries/liblmdb)
 NIUBI_SETUP_EXECUTABLE()
-target_link_libraries(${NIUBI_SETUP_TARGET_NAME} 
+target_link_libraries(${SETUP_TARGET_NAME} 
         c-protobuf c-multihash c-multiaddr c-libp2p
         )
 
