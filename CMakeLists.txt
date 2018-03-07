@@ -78,7 +78,32 @@ SET(SETUP_HEADERS
 SET(SETUP_SOURCES
     # c-libp2p/multiaddr.c
 )
-file(GLOB_RECURSE SETUP_SOURCES "c-libp2p/*.c")
+# file(GLOB_RECURSE SETUP_SOURCES "c-libp2p/*.c")
+SET (DIRS 
+    conn
+	crypto
+	crypto/encoding
+	db
+	thirdparty/mbedtls
+	hashmap/hashmap
+	identify
+	net
+	os
+	peer
+	record
+	routing
+	secio
+	utils
+	swarm
+	yamux
+    )
+
+foreach(loop_var ${DIRS})
+    SET(GLOB_SOURCES "")
+    file(GLOB_RECURSE GLOB_SOURCES "c-libp2p/${loop_var}/*.c")
+    SET(SETUP_SOURCES ${SETUP_SOURCES} ${GLOB_SOURCES})
+endforeach(loop_var)
+
 INCLUDE_DIRECTORIES(c-libp2p/include)
 SETUP_LIBRARY()
 
