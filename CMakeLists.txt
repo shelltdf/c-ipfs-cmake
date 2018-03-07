@@ -100,11 +100,13 @@ SET(SETUP_SOURCES
     c-ipfs/core/null.c
     c-ipfs/core/ping.c
     c-ipfs/core/swarm.c
+    
+    c-ipfs/path/path.c
 )
 
 SET (DIRS 
     main blocks cid cmd commands datastore dnslink exchange flatfs 
-    importer journal merkledag multibase namesys path pin repo routing 
+    importer journal merkledag multibase namesys pin repo routing 
     thirdparty unixfs util
     )
 
