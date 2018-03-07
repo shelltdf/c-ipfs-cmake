@@ -1,0 +1,18 @@
+[submodule "c-ipfs"]
+	path = c-ipfs
+	url = https://github.com/Agorise/c-ipfs.git
+[submodule "lmdb"]
+	path = lmdb
+	url = https://github.com/jmjatlanta/lmdb.git
+[submodule "c-protobuf"]
+	path = c-protobuf
+	url = https://github.com/Agorise/c-protobuf.git
+[submodule "c-multihash"]
+	path = c-multihash
+	url = https://github.com/Agorise/c-multihash.git
+[submodule "c-multiaddr"]
+	path = c-multiaddr
+	url = https://github.com/Agorise/c-multiaddr.git
+[submodule "c-libp2p"]
+	path = c-libp2p
+	url = https://github.com/Agorise/c-libp2p.git
