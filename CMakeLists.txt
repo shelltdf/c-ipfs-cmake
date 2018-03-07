@@ -55,9 +55,11 @@ SETUP_LIBRARY()
 SET(SETUP_TARGET_NAME c-protobuf)
 SET(SETUP_HEADERS
     c-protobuf/protobuf.h
+    c-protobuf/varint.h
 )
 SET(SETUP_SOURCES
     c-protobuf/protobuf.c
+    c-protobuf/varint.c
 )
 INCLUDE_DIRECTORIES(c-protobuf)
 SETUP_LIBRARY()
